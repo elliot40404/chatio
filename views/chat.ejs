@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAT</title>
+    <meta name="theme-color" content="#e82b19">
+    <%- include('_meta') %> 
+    <script defer src='/js/chat.js'></script>
+    <link rel='stylesheet' href='/css/chat.css'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="con">
+        <div class="container">
+            <header><h3>CHAT</h3></header>
+            <div id="chat" class="chat">
+                <div class="msg-s">HEY THERE</div>
+                <div class="msg-s">Share this code or QR to let your friends connect</div>
+                <div class="msg-s">Your room id is <a id="room" target="_blank" class="id"><%= id %></a></div>
+            </div>
+            <div class="input">
+                <textarea class="edit" placeholder="Enter is send and Shift enter for new line" autofocus autocomplete="off" id="text"
+                    name="text"></textarea>
+                <button type="submit" id="send" class="material-icons">send</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

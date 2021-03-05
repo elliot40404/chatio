@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    background: #040404;
+    font-family: "Open Sans", sans-serif;
+}
+
+.cont {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+h2 {
+    color: white;
+}
+
+.field {
+    position: relative;
+    overflow: hidden;
+}
+
+.field__input {
+    border: none;
+    outline: none;
+    font-family: inherit;
+    text-align: center;
+    font-size: 1.4rem;
+    padding: 0.8rem 2rem 0.8rem 0;
+    min-width: 16rem;
+    background: none;
+    color: #f5f8ff;
+    border-bottom: 0.15rem solid rgba(245, 248, 255, 0.4);
+}
+
+.field__input::-webkit-input-placeholder {
+    color: rgba(245, 248, 255, 0.4);
+}
+
+.field__input:-ms-input-placeholder {
+    color: rgba(245, 248, 255, 0.4);
+}
+
+.field__input::-ms-input-placeholder {
+    color: rgba(245, 248, 255, 0.4);
+}
+
+.field__input::placeholder {
+    color: rgba(245, 248, 255, 0.4);
+}
+
+.field::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 0.30rem;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+    transition: -webkit-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+    background: #00fafa;
+}
+
+.field:hover::after,
+.field:focus::after,
+.field:focus-within::after {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 30px;
+}
+
+input:invalid {
+    border-bottom: 0.15rem solid #d60d0d;
+}
+
+input:valid {
+    border-bottom: 0.15rem solid #68b603;
+}
+
+button {
+    border: none;
+    font-family: inherit;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 36px;
+    font-weight: bold;
+    background: none;
+    color: #00c0fa;
+    border: 3px solid white;
+    -webkit-transition: border 200ms ease-in;
+    transition: border 200ms ease-in;
+}
+
+button:hover {
+    border: 3px solid #0bce0b;
+    -webkit-box-shadow: 1px 1px 10px green;
+    box-shadow: 1px 1px 10px green;
+}
+
+.og:hover {
+    border: 3px solid #d67d09;
+    -webkit-box-shadow: 1px 1px 10px green;
+    box-shadow: 1px 1px 10px #d67d09;
+}
