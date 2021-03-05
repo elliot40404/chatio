@@ -42,3 +42,7 @@ document.getElementById('join').addEventListener('click', async () => {
         alert(`${code} invalid`);
     }
 });
+
+document.getElementById('scan').addEventListener('click', (e) => {
+    location.href = '/qr';
+});
