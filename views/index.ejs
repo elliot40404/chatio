@@ -1,27 +1,42 @@
+<!-- ! test code -->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%- include('_meta') %> 
-    <script defer src="/js/app.js"></script>
+    <%- include('_meta') %>
+    <link rel='stylesheet' href='/css/scn.css'>
+    <script defer src='/js/qr.js'></script>
+    <!-- <script defer src="/js/scan.js"></script> -->
+    <script defer type="module" src="/js/app.js"></script>
     <title>C ROOMS</title>
     <link rel='stylesheet' href='/css/main.css'>
 </head>
+
 <body>
-        <div class="cont">
-            <label class="field">
-                <input id="code" required type="text" class="field__input" placeholder="ROOM CODE" maxlength="6" />
-            </label>
-            <div>
-                <button id="join" type="submit">JOIN</button>
-                <button id="scan">SCAN</button>
-            </div>
-            <h2>OR</h2>
-            <div class="create">
-                <button id="cr" class="og">CREATE ROOM</button>
-            </div>
+    <div class="cont">
+        <label class="field">
+            <input id="code" required type="text" class="field__input" placeholder="ROOM CODE" maxlength="6" />
+        </label>
+        <div id="jbtn">
+            <button id="join" type="submit">JOIN</button>
+            <button id="scan">SCAN</button>
         </div>
+        <h2>OR</h2>
+        <div class="create">
+            <button id="cr" class="og">CREATE ROOM</button>
+        </div>
+    </div>
+    <div id="ov" class="overlay">
+        <div class="container">
+            <div id="loadingMessage">⌛ Loading scanner...</div>
+            <canvas id="canvas" hidden></canvas>
+            <div id="outputMessage">No QR code detected.</div> -->
+        </div>
+    </div>
 </body>
+
 </html>

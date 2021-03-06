@@ -17,10 +17,6 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.get('/qr', (req, res) => {
-    res.render('qr');
-});
-
 app.get('/chat', (req, res) => {
     res.render('chat', { id: rid });
 });

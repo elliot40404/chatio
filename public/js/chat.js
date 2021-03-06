@@ -35,12 +35,13 @@ const src = document.createElement('img');
 src.id = 'qr'
 div.appendChild(src)
 document.getElementById('chat').appendChild(div);
-document.getElementById('room').setAttribute('href', `http://192.168.0.8:3000/chat?mode=join&&room=${room}`);
+document.getElementById('room').setAttribute('href', `https://50649e5267da.ngrok.io/chat?mode=join&&room=${room}`);
+// document.getElementById('room').setAttribute('href', `http://192.168.0.8:3000/chat?mode=join&&room=${room}`);
 const qr = new QRious({
     element: document.getElementById('qr'),
     size: 150,
-    value: `http://192.168.0.8:3000/chat?mode=join&&room=${room}`
-    // value: `https://c98d70eb6aa6.ngrok.io/join?mode=join&&room=${room}`
+    // value: `http://192.168.0.8:3000/chat?mode=join&&room=${room}`
+    value: `https://50649e5267da.ngrok.io/join?mode=join&&room=${room}`
 });
 
 const append = (e, c) => {
