@@ -35,7 +35,7 @@ src.id = 'qr'
 div.appendChild(src)
 document.getElementById('chat').appendChild(div);
 
-const rv = `${window.location.host}/chat?mode=join&&room=${room}`;
+const rv = `http://${window.location.host}/chat?mode=join&&room=${room}`;
 
 document.getElementById('room').setAttribute('href', rv);
 const qr = new QRious({
@@ -72,14 +72,36 @@ document.getElementById('text').addEventListener('keypress', (e) => {
 })
 
 
-// document.getElementById('bt').addEventListener('click', (e) => {
-//     const file = document.getElementById('file').files[0];
-//     const reader = new FileReader();
-//     reader.onloadend = function () {
-//         console.log('RESULT', reader.result)
-//         const i = document.createElement('img');
-//         i.src = reader.result;
-//         document.body.appendChild(i);
-//     }
-//     reader.readAsDataURL(file);
-// });
+document.getElementById('link').addEventListener('click', (e) => {
+    document.getElementById('image').click();
+});
+
+document.getElementById('image').addEventListener('change', (e) => {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+        document.getElementById('preview').src = reader.result
+    }
+    reader.readAsDataURL(document.getElementById('image').files[0])
+    document.getElementById('over').style.display = 'block';
+});
+
+document.getElementById('over').addEventListener('click', (e) => {
+    document.getElementById('over').style.display = 'none';
+});
+
+document.getElementById('imgsend').addEventListener('click', (e) => {
+    const img = document.createElement('img');
+    img.className = 'timg-s'
+    img.src = document.getElementById('preview').src
+    document.getElementById('chat').appendChild(img);
+    socket.emit('image', { room: room, msg: document.getElementById('preview').src });
+    scroll();
+});
+
+socket.on('img', (data) => {
+    const img = document.createElement('img');
+    img.className = 'timg'
+    img.src = data
+    document.getElementById('chat').appendChild(img);
+    scroll();
+});

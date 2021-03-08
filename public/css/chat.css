@@ -1,7 +1,14 @@
 * {
     padding: 0%;
     margin: 0%;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
 }
 
 .con {
@@ -25,11 +32,22 @@
     overflow: hidden;
 }
 
+.container header {
+    flex: 0.8;
+    background: #e82b19;
+}
+
+.container header h3 {
+    text-align: center;
+    padding: 10px;
+}
+
 .container .chat {
     -webkit-box-flex: 9;
     -ms-flex: 9;
     flex: 9;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     padding: 20px 10px 5px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -47,7 +65,7 @@
     width: 100%;
     overflow: hidden;
     position: relative;
-    padding: 10px;
+    padding: 5px;
 }
 
 .container .input .edit {
@@ -57,11 +75,12 @@
     width: 100%;
     height: 100%;
     border-radius: 36px;
-    padding: 17px 10% 0 5%;
+    padding: 18px 20% 0 3.5%;
     background: #1d1d22;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     resize: none;
+    z-index: 5;
     overflow: auto;
 }
 
@@ -69,12 +88,12 @@
     border: none;
 }
 
-.container .input #send {
+.container .input #send,
+#link {
     border: none;
     cursor: pointer;
     position: absolute;
     right: 20px;
-    position: absolute;
     top: 50%;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
@@ -85,16 +104,9 @@
     height: 50px;
 }
 
-.container header {
-    flex: 0.8;
-    background: #e82b19;
+#link {
+    right: 80px;
 }
-
-.container header h3 {
-    text-align: center;
-    padding: 10px;
-}
-
 
 .msg,
 .msg-s {
@@ -106,6 +118,24 @@
     padding: 5px 10px;
     border-radius: 0px 15px 15px 0px;
     margin: 5px;
+    word-wrap: break-word;
+}
+
+.timg {
+    max-width: 25%;
+    background: #1d1d22;
+    padding: 5px;
+    border-radius: 0px 15px 15px 15px;
+}
+
+.timg-s {
+    max-width: 25%;
+    align-self: flex-end;
+    background: #1d1d22;
+    padding: 5px;
+    border-radius: 15px 0px 15px 15px;
+    max-height: 40%;
+    object-fit: cover;
 }
 
 .msg-s {
@@ -114,6 +144,92 @@
     border-radius: 15px 0px 0px 15px;
 }
 
+#image {
+    display: none;
+}
+
+.ove {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    z-index: 10;
+    background: #030304d7;
+    pointer-events: all;
+    display: none;
+}
+
+#preview {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: 60%;
+}
+
+
+#imgsend {
+    border: none;
+    cursor: pointer;
+    border-radius: 36px;
+    background: #e82b19;
+    color: white;
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .id {
     color: yellow;
+}
+
+@media only screen and (max-width: 786px) {
+    .container .input .edit {
+        width: 88%;
+        border-radius: 36px;
+        padding: 13px 60px 0 5%;
+        font-size: 1rem;
+        overflow: auto;
+        height: 80%;
+    }
+
+    .container .input #send {
+        right: 5px;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        top: 43%;
+    }
+
+    #link {
+        right: 15%;
+        width: 40px;
+        height: 40px;
+        top: 43%;
+    }
+
+    .timg {
+        max-width: 50%;
+        background: #1d1d22;
+        padding: 5px;
+        border-radius: 0px 15px 15px 15px;
+    }
+
+    .timg-s {
+        max-width: 50%;
+        align-self: flex-end;
+        background: #1d1d22;
+        padding: 5px;
+        border-radius: 15px 0px 15px 15px;
+        max-height: 40%;
+        object-fit: cover;
+    }
+
+    ::placeholder {
+        font-size: 0.8em
+    }
 }

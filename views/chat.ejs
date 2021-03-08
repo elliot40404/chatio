@@ -14,20 +14,28 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <div class="con">
-        <div class="container">
-            <header><h3>CHAT</h3></header>
-            <div id="chat" class="chat">
-                <div class="msg-s">HEY THERE</div>
-                <div class="msg-s">Share this code or QR to let your friends connect</div>
-                <div class="msg-s">Your room id is <a id="room" target="_blank" class="id"><%= id %></a></div>
-            </div>
-            <div class="input">
-                <textarea class="edit" placeholder="Enter is send and Shift enter for new line" autofocus autocomplete="off" id="text"
-                    name="text"></textarea>
-                <button type="submit" id="send" class="material-icons">send</button>
-            </div>
+    <div class="container">
+        <header>
+            <h3>
+                CHAT
+            </h3>
+        </header>
+        <div id="chat" class="chat">
+            <div class="msg-s">HEY THERE</div>
+            <div class="msg-s">Share this code or QR to let your friends connect</div>
+            <div class="msg-s">Your room id is <a id="room" target="_blank" class="id"><%= id %></a></div>
         </div>
+        <div class="input">
+            <textarea class="edit" placeholder="Enter is send and Shift enter for new line" autofocus autocomplete="off" id="text"
+                name="text"></textarea>
+            <button id="link" class="material-icons">link</button>
+            <button type="submit" id="send" class="material-icons">send</button>
+            <input id="image" accept="image/*" type="file" />
+        </div>
+    </div>
+    <div id="over" class="ove">
+        <img src="#" id="preview" alt="preview">
+        <button id="imgsend" class="material-icons">send</button>
     </div>
 </body>
 </html>

@@ -57,6 +57,9 @@ io.on('connection', (socket) => {
         // socket.broadcast.emit(data.msg);
         socket.to(data.room).broadcast.emit('alert', data.msg);
     });
+    socket.on('image', (data) => {
+        socket.to(data.room).broadcast.emit('img', data.msg);
+    });
 })
 
 http.listen(3000, '192.168.0.8', () => {
