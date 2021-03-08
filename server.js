@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http, {
+    maxHttpBufferSize: 1e20,
+    pingTimeout: 7000,
     cors: { origin: "*" }
 });
 const { nanoid } = require('nanoid');
