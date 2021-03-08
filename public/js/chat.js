@@ -4,7 +4,6 @@ const status = performance.getEntriesByType("navigation")
 if (status[0].type = 'reload') {
     const lroom = localStorage.getItem('room')
     socket.emit('joinroom', lroom);
-    // document.getElementById('room').innerText = lroom
 }
 
 const room = document.getElementById('room').innerText;
@@ -35,13 +34,14 @@ const src = document.createElement('img');
 src.id = 'qr'
 div.appendChild(src)
 document.getElementById('chat').appendChild(div);
-document.getElementById('room').setAttribute('href', `https://50649e5267da.ngrok.io/chat?mode=join&&room=${room}`);
-// document.getElementById('room').setAttribute('href', `http://192.168.0.8:3000/chat?mode=join&&room=${room}`);
+
+const rv = `${window.location.host}/chat?mode=join&&room=${room}`;
+
+document.getElementById('room').setAttribute('href', rv);
 const qr = new QRious({
     element: document.getElementById('qr'),
     size: 150,
-    // value: `http://192.168.0.8:3000/chat?mode=join&&room=${room}`
-    value: `https://50649e5267da.ngrok.io/join?mode=join&&room=${room}`
+    value: rv
 });
 
 const append = (e, c) => {
@@ -58,13 +58,6 @@ window.addEventListener('beforeunload', function (e) {
 }); 
 localStorage.setItem('room', room);
 
-// window.addEventListener('focus', (e) => {
-//     document.title = "ONLINE"
-// })
-// window.addEventListener('blur', (e) => {
-//     document.title = "OFFLINE"
-// })
-
 document.getElementById('text').addEventListener('keypress', (e) => {
     if (e.key == 'Enter' && !e.shiftKey) {
         e.preventDefault()
@@ -77,3 +70,16 @@ document.getElementById('text').addEventListener('keypress', (e) => {
         txtArea.value += '\r\n';
     }
 })
+
+
+// document.getElementById('bt').addEventListener('click', (e) => {
+//     const file = document.getElementById('file').files[0];
+//     const reader = new FileReader();
+//     reader.onloadend = function () {
+//         console.log('RESULT', reader.result)
+//         const i = document.createElement('img');
+//         i.src = reader.result;
+//         document.body.appendChild(i);
+//     }
+//     reader.readAsDataURL(file);
+// });

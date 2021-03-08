@@ -6,6 +6,8 @@ const io = require('socket.io')(http, {
 });
 const { nanoid } = require('nanoid');
 app.set('view engine', 'ejs');
+const pino = require('pino-http')();
+app.use(pino)
 app.use(express.urlencoded({ extended: false, limit: '150mb' }));
 app.use(express.static(__dirname + '/public'));
 
@@ -42,7 +44,6 @@ app.get('/join', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-    // console.log(`user connected with ${socket.id}`);
     socket.on('joinroom', (code) => {
             socket.join(code)
             console.log(`${socket.id} joined room ${code}`)
