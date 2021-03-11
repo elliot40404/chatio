@@ -1,4 +1,4 @@
-import { qr } from'./scan.js';
+import { qr } from './scan.js';
 
 document.getElementById('cr').addEventListener('click', async () => {
     const req = await fetch('/chat?mode=create', {
@@ -28,6 +28,7 @@ document.getElementById('join').addEventListener('click', async () => {
 });
 
 document.getElementById('scan').addEventListener('click', (e) => {
+    import('./qr.js');
     document.getElementById('ov').style.display = "grid"
     qr();
 });
