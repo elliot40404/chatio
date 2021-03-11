@@ -94,8 +94,21 @@ document.getElementById('imgsend').addEventListener('click', (e) => {
     img.className = 'timg-s'
     img.src = document.getElementById('preview').src
     document.getElementById('chat').appendChild(img);
-    socket.emit('image', { room: room, msg: document.getElementById('preview').src });
     scroll();
+    const options = {
+        targetSize: 0.2,
+        quality: 0.70,
+    };
+    const compress = new Compress(options);
+    const files = [...document.getElementById('image').files];
+    compress.compress(files).then((conversions) => {
+        const { photo, info } = conversions[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(photo.data);
+        reader.onloadend = function () {
+            socket.emit('image', { room: room, msg: reader.result });
+        }
+    });
 });
 
 socket.on('img', (data) => {
