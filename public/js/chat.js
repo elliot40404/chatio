@@ -35,7 +35,7 @@ src.id = 'qr'
 div.appendChild(src)
 document.getElementById('chat').appendChild(div);
 
-const rv = `http://${window.location.host}/chat?mode=join&&room=${room}`;
+const rv = `${location.href.split('/')[0]}//${window.location.host}/chat?mode=join&&room=${room}`;
 
 document.getElementById('room').setAttribute('href', rv);
 const qr = new QRious({

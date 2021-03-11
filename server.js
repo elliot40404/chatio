@@ -64,10 +64,10 @@ io.on('connection', (socket) => {
     });
 })
 
-http.listen(3000, '192.168.0.8', () => {
-    console.log(`Started server at ${Date()}`)
-});
-
-// http.listen(3000, () => {
+// http.listen(process.env.PORT || 3000, '192.168.0.8', () => {
 //     console.log(`Started server at ${Date()}`)
 // });
+
+http.listen(process.env.PORT || 3000, () => {
+    console.log(`Started server at ${Date()}`)
+});
