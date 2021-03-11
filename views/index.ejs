@@ -10,7 +10,6 @@
     <%- include('_meta') %>
     <link rel='stylesheet' href='/css/scn.css'>
     <script defer src='/js/qr.js'></script>
-    <!-- <script defer src="/js/scan.js"></script> -->
     <script defer type="module" src="/js/app.js"></script>
     <title>C ROOMS</title>
     <link rel='stylesheet' href='/css/main.css'>
@@ -37,6 +36,18 @@
             <div id="outputMessage">No QR code detected.</div> -->
         </div>
     </div>
+    <script>
+        function registerServiceWorker() {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/js/service-worker.js').then(reg => {
+                    console.log('Registration successful', reg);
+                })
+                    .catch(e => console.error('Error during service worker registration:', e));
+            } else {
+                console.warn('Service Worker is not supported');
+            }
+        }
+    </script>
 </body>
 
 </html>
