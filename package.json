@@ -1,6 +1,6 @@
 {
-  "name": "crooms",
-  "version": "1.0.0",
+  "name": "dinochat",
+  "version": "1.0.9",
   "description": "",
   "main": "server.js",
   "scripts": {

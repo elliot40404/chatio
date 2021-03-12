@@ -50,13 +50,8 @@ io.on('connection', (socket) => {
             socket.join(code)
             console.log(`${socket.id} joined room ${code}`)
             users.push({ id: socket.id, room: code });
-            // console.log(users);
-            // console.log(socket.rooms);
     });
     socket.on('chat', (data) => {
-        // console.log(data);
-        // io.to(data.room).emit('alert', data.msg);
-        // socket.broadcast.emit(data.msg);
         socket.to(data.room).broadcast.emit('alert', data.msg);
     });
     socket.on('image', (data) => {
