@@ -35,4 +35,28 @@ document.getElementById('scan').addEventListener('click', (e) => {
 
 document.getElementById('ov').addEventListener('click', () => {
     document.getElementById('ov').style.display = "none"
-})
+});
+
+// ! PWA install
+
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    // showInstallPromotion(); code for a install popup goes here
+    console.log(`'beforeinstallprompt' event was fired.`);
+});
+const btn = document.getElementById('btn');
+btn.addEventListener('click', async () => {
+    // hideInstallPromotion(); hide popup
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(`User response to the install prompt: ${outcome}`);
+    deferredPrompt = null;
+});
+
+window.addEventListener('appinstalled', () => {
+    // hideInstallPromotion();
+    deferredPrompt = null;
+    console.log('PWA was installed');
+});

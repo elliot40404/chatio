@@ -1,6 +1,5 @@
 node_modules
-*.test.js
-qr.ejs
+*.test.*
 Dockerfile
 .dockerignore
-scn.css
+extras
