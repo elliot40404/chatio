@@ -1,6 +1,6 @@
 import { qr } from './scan.js';
 
-document.getElementById('cr').addEventListener('click', async () => {
+async function create() {
     const req = await fetch('/chat?mode=create', {
         method: 'POST',
     });
@@ -8,10 +8,46 @@ document.getElementById('cr').addEventListener('click', async () => {
     if (res.id == 'okay') {
         location.href = '/chat';
     }
-});
+}
+async function join() {
+    const code = document.getElementById('code').value
+    if (code.length == 6) {
+        const req = await fetch(`/chat?mode=join&room=${code}`, {
+            method: 'POST',
+        });
+        const res = await req.json()
+        if (res.id == 'okay') {
+            location.href = '/chat';
+        } else {
+            alert('No such room');
+        }
+    } else {
+        alert(`${code} invalid`);
+    }
+}
+
+document.getElementById('cr').addEventListener('click', create);
+document.getElementById('crm').addEventListener('click', create);
 
 document.getElementById('join').addEventListener('click', async () => {
-    const code = document.getElementById('code').value
+        const code = document.getElementById('code').value
+        if (code.length == 6) {
+            const req = await fetch(`/chat?mode=join&room=${code}`, {
+                method: 'POST',
+            });
+            const res = await req.json()
+            if (res.id == 'okay') {
+                location.href = '/chat';
+            } else {
+                alert('No such room');
+            }
+        } else {
+            alert(`${code} invalid`);
+        }
+});
+
+document.getElementById('joinm').addEventListener('click', async () => {
+    const code = document.getElementById('codem').value
     if (code.length == 6) {
         const req = await fetch(`/chat?mode=join&room=${code}`, {
             method: 'POST',
@@ -28,6 +64,11 @@ document.getElementById('join').addEventListener('click', async () => {
 });
 
 document.getElementById('scan').addEventListener('click', (e) => {
+    import('./qr.js');
+    document.getElementById('ov').style.display = "grid"
+    qr();
+});
+document.getElementById('scanm').addEventListener('click', (e) => {
     import('./qr.js');
     document.getElementById('ov').style.display = "grid"
     qr();
