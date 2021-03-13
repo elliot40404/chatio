@@ -96,6 +96,15 @@ btn.addEventListener('click', async () => {
     deferredPrompt = null;
 });
 
+const btnm = document.getElementById('btnm');
+btnm.addEventListener('click', async () => {
+    // hideInstallPromotion(); hide popup
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(`User response to the install prompt: ${outcome}`);
+    deferredPrompt = null;
+});
+
 window.addEventListener('appinstalled', () => {
     // hideInstallPromotion();
     deferredPrompt = null;

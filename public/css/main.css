@@ -76,7 +76,18 @@ body {
     color: white;
     font-weight: 500;
     cursor: pointer;
+    animation: pop 1s ease forwards;
 }
+
+@keyframes pop {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
 
 .create {
     padding: 10px 40px;
@@ -223,6 +234,7 @@ body {
         height: 100vh;
         width: 100vw;
         overflow-x: hidden;
+        position: relative;
     }
 
     .up {
@@ -325,5 +337,33 @@ body {
         height: 0px;
         width: 0px;
         overflow: hidden;
+    }
+
+    .ppwa {
+        position: absolute;
+        top: 30px;
+        right: 0px;
+        background: #6170f5cb;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 20px 0px 0px 20px;
+        animation: slidein 5s ease forwards;
+    }
+
+    .ppwa h1 {
+        font-weight: 500;
+        font-size: 20px;
+    }
+
+    @keyframes slidein {
+        from {
+            display:none;
+            transform: translateX(200px);
+        }
+        to {
+            display:block;
+            transform: translateX(0);
+
+        }
     }
 }
