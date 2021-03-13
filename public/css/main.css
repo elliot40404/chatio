@@ -1,6 +1,7 @@
 @font-face {
     font-family: Open Sans;
     src: url('./open.ttf');
+    font-display: swap;
 }
 
 * {
@@ -11,7 +12,7 @@
 
 body {
     font-family: "Open Sans", sans-serif;
-    font-display: auto;
+    font-display: swap;
 }
 .con {
     display: none;
@@ -20,14 +21,10 @@ body {
 .container {
     height: 100vh;
     width: 100vw;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
 }
 
 .hero {
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
     flex: 1;
     height: 100vh;
     width: 100%;
@@ -42,34 +39,20 @@ body {
 }
 
 .main {
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
     flex: 1;
     padding: 0px 25px;
     position: relative;
-    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
 }
 
 .main nav {
     width: 100%;
     height: 10vh;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -77,8 +60,6 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     cursor: pointer;
 }
@@ -99,7 +80,7 @@ body {
 
 .create {
     padding: 10px 40px;
-    background: #FF9F3B;
+    background: #6170F5;
     border-radius: 100vw;
     font-size: 2rem;
     color: #fff;
@@ -138,11 +119,7 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -181,7 +158,6 @@ body {
     z-index: 3;
 }
 
-/* change */
 
 .qcontainer {
     height: 400px;
@@ -208,6 +184,11 @@ body {
 #canvas {
     width: 100%;
     height: 100%;
+}
+
+.hide {
+    height: 0px;
+    width: 0px;
 }
 
 @media only screen and (max-width: 1160px) {
@@ -246,7 +227,6 @@ body {
     .up {
         flex: 1;
         width: 100%;
-        /* background: #000; */
     }
 
     .up img {
@@ -260,13 +240,12 @@ body {
         height: 100%;
         display: flex;
         flex-direction: column;
-        /* justify-content: center; */
         align-items: center;
     }
 
     .create {
         padding: 10px 40px;
-        background: #FF9F3B;
+        background: #6170F5;
         border-radius: 100vw;
         font-size: 2rem;
         color: #fff;
@@ -340,5 +319,10 @@ body {
         padding: 10px 30px;
         font-size: 20px;
         margin: 20px 0px;
+    }
+    .hide {
+        height: 0px;
+        width: 0px;
+        overflow: hidden;
     }
 }

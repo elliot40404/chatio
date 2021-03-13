@@ -18,7 +18,8 @@ let rooms = []
 let rid
 
 app.get('/', (req, res) => {
-    res.render('index');
+    // res.render('index');
+    res.sendFile(__dirname + '/views/index.html');
 });
 
 app.get('/chat', (req, res) => {

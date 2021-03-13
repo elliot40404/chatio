@@ -26,15 +26,14 @@
     <div class="container">
         <div class="hero">
             <picture>
-                <!-- <source srcset="/assets/bg.avif">
-                <source srcset="/assets/bg.webp"> -->
+                <source srcset="/assets/bg1.webp">
                 <img src="/assets/bg1.png" alt="Hero image" />
             </picture>
         </div>
         <div class="main">
             <nav>
                 <div id="scan" class="scan">
-                    <img src="/assets/qr.png" alt="">
+                    <img src="/assets/qr.png" alt="png">
                     <h3>SCAN</h3>
                 </div>
                 <div id="btn" class="install">
@@ -49,6 +48,7 @@
             <div class="join">
                 <h1>Enter room code or scan a QR.</h1>
                 <div class="input">
+                    <label class="hide" for="code">room</label>
                     <input type="text" maxlength="6" name="code" id="code">
                     <button id="join">join</button>
                 </div>
@@ -57,7 +57,10 @@
     </div>
     <div class="con">
         <div class="up">
-            <img src="/assets/hero.png" alt="hero">
+            <picture>
+                <source srcset="/assets/hero.webp">
+                <img src="/assets/hero.png" alt="Hero image" />
+            </picture>
         </div>
         <div class="down">
             <div id="crm" class="create">CREATE ROOM</div>
@@ -65,6 +68,7 @@
             <div class="form">
                 <h1>Enter room code or scan a QR.</h1>
                 <div class="inp">
+                    <label class="hide" for="codem">room</label>
                     <input type="text" maxlength="6" name="roomm" id="codem">
                     <img src="/assets/qr.png" alt="qr scanner" id="scanm" class="qr">
                 </div>
@@ -76,7 +80,7 @@
         <div class="qcontainer">
             <div id="loadingMessage">⌛ Loading scanner...</div>
             <canvas id="canvas" hidden></canvas>
-            <div id="outputMessage">No QR code detected.</div> -->
+            <div id="outputMessage">No QR code detected.</div>
         </div>
     </div>
     <script>
