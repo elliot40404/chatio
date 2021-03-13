@@ -189,6 +189,7 @@ body {
 .hide {
     height: 0px;
     width: 0px;
+    overflow: hidden;
 }
 
 @media only screen and (max-width: 1160px) {
