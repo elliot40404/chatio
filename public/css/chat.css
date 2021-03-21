@@ -187,6 +187,19 @@ body {
     color: yellow;
 }
 
+#emoji {
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+}
+
 @media only screen and (max-width: 786px) {
     .container .input .edit {
         width: 88%;

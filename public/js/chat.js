@@ -1,7 +1,8 @@
+import { EmojiButton } from './emoji-button.js';
 const socket = io();
 const status = performance.getEntriesByType("navigation")
 
-if (status[0].type = 'reload') {
+if (status[0].type == 'reload') {
     const lroom = localStorage.getItem('room')
     socket.emit('joinroom', lroom);
 }
@@ -44,13 +45,33 @@ const qr = new QRious({
     value: rv
 });
 
+// const append = (e, c) => {
+//     const div = document.createElement('div');
+//     div.className = c;
+//     div.innerText = e;
+//     document.getElementById('chat').appendChild(div);
+//     scroll();
+// }
+
+//  ! link detection
+
 const append = (e, c) => {
-    const div = document.createElement('div');
-    div.className = c;
-    div.innerText = e;
-    document.getElementById('chat').appendChild(div);
+    if (e.startsWith('http')) {
+        const link = document.createElement('a');
+        link.href = e;
+        link.setAttribute('target', '_blank');
+        link.className = c;
+        link.innerText = e;
+        document.getElementById('chat').appendChild(link);
+    } else {
+        const div = document.createElement('div');
+        div.className = c;
+        div.innerText = e;
+        document.getElementById('chat').appendChild(div);
+    }
     scroll();
 }
+
 
 window.addEventListener('beforeunload', function (e) {
     e.preventDefault();
@@ -89,6 +110,8 @@ document.getElementById('over').addEventListener('click', (e) => {
     document.getElementById('over').style.display = 'none';
 });
 
+//  !compression
+
 document.getElementById('imgsend').addEventListener('click', (e) => {
     const img = document.createElement('img');
     img.className = 'timg-s'
@@ -118,3 +141,16 @@ socket.on('img', (data) => {
     document.getElementById('chat').appendChild(img);
     scroll();
 });
+
+
+
+//  ! emoji
+
+const picker = new EmojiButton();
+const trigger = document.querySelector('.trigger');
+
+picker.on('emoji', selection => {
+    document.getElementById('text').value += selection.emoji;
+});
+
+// trigger.addEventListener('click', () => picker.togglePicker(trigger));

@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#e82b19">
     <%- include('_meta') %> 
     <script defer src='/js/compress.js'></script>
-    <script defer src='/js/chat.js'></script>
+    <script defer type="module" src='/js/chat.js'></script>
     <link rel='stylesheet' href='/css/chat.css'>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -32,6 +32,7 @@
             <button id="link" class="material-icons">link</button>
             <button type="submit" id="send" class="material-icons">send</button>
             <input id="image" accept="image/*" type="file" />
+            <button class="trigger"  id="emoji">😀</button>
         </div>
     </div>
     <div id="over" class="ove">
